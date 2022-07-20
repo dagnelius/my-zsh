@@ -1,0 +1,22 @@
+ZSH_HOME=$HOME/.config/zsh
+
+CONFIG_FILES=(
+	plugins.zsh
+	aliases.zsh
+	history_settings.zsh
+	prompt.zsh
+	completion.zsh
+)
+
+for file in $CONFIG_FILES; do
+	source $ZSH_HOME/$file
+done
+
+if [[ -f $ZSH_HOME/custom.zsh ]]; then
+	source $ZSH_HOME/custom.zsh
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
